@@ -1,18 +1,14 @@
-window.onload = loaded;
+/* Handle form submissions */
+const form = document.querySelector("#add-form");
+let formObject = {};
 
-/**
- * Simple Function that will be run when the browser is finished loading.
- */
-function loaded() {
-    // Assign to a variable so we can set a breakpoint in the debugger!
-    const hello = sayHello();
-    console.log(hello);
-}
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const formData = new FormData(form); // Extract form data
+  formData.forEach((value, key) => formObject[key] = value);
 
-/**
- * This function returns the string 'hello'
- * @return {string} the string hello
- */
-export function sayHello() {
-    return 'hello';
-}
+  let xhr = new XMLHttpRequest();
+  xhr.open("PUT", "https://lem6e5tfn2.execute-api.us-east-2.amazonaws.com/items");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(formObject));
+});
