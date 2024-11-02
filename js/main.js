@@ -25,7 +25,7 @@ let processData = (xhr) => {
   loadingText.style.color = "#fff";
   main.appendChild(loadingText);
 
-  xhr.addEventListener("load", function () {
+  xhr.addEventListener("load", function() {
     responseData = JSON.parse(xhr.response);
     responseData.sort((a, b) => a.id - b.id);
 
@@ -41,7 +41,7 @@ let processData = (xhr) => {
       row.appendChild(name);
 
       const price = document.createElement("td");
-      price.innerHTML = item.price;
+      price.innerHTML = `$${item.price}`;
       row.appendChild(price);
 
       const btnTblData = document.createElement("td");
@@ -97,7 +97,7 @@ addButton.addEventListener('click', () => {
       label.htmlFor = key;
       label.innerText = formValues[key];
 
-      input.type = "text";
+      input.type = (key === "name") ? "text" : "number";
       input.id = key;
       input.name = key;
       label.appendChild(input);
