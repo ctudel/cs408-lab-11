@@ -21,7 +21,7 @@ td {
 }
 
 #add-btn {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 
@@ -166,11 +166,6 @@ td {
   border: 1px #aaa solid;
   border-radius: 10px;
 }
-
-#submit-btn:hover {
-  background-color: #FF5CBB;
-}
-
 
 form {
   background-color: #fff;

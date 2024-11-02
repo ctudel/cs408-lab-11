@@ -1,4 +1,3 @@
-
 /* 
  * GET
  * Get Items and update table
@@ -107,6 +106,7 @@ addButton.addEventListener('click', () => {
     } else { // Add a submit button to form
       input.type = key;
       input.value = formValues[key];
+      input.id = "submit-btn";
       form.appendChild(input);
     }
   }
